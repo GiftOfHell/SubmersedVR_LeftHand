@@ -119,11 +119,7 @@ namespace SubmersedVR
                 pointerDot.SetActive(true);
                 length = this.worldTargetDistance;
             }
-            Show(Settings.ShowLaserPointer == "Always" || (Settings.ShowLaserPointer == "Default" && (uiWasHit || worldWasHit)), worldWasHit);
-            if (Settings.ShowLaserPointer == "Never")
-            {
-                pointerDot.SetActive(false);
-            }
+            Show(Settings.AlwaysShowLaserPointer | uiWasHit | worldWasHit, worldWasHit);
 
             Vector3 endPos = transform.position + (transform.forward * length);
 
